@@ -1,4 +1,16 @@
 
+body {
+  /*grey*/
+  /*background-color: #fafafa;*/
+  /*corn silk*/
+  /*background-color: #FFF8DC;*/
+  /*ghost white*/
+  /*background-color: #F8F8FF;*/
+  /*background-color: #000000;*/
+  /*grey beige*/
+  background-color: #f9f7ef;
+}
+
 .container {
   width: 890px;
 }
@@ -50,11 +62,15 @@
 }
 
 #vis .title {
-  font-size:120px;
+  font-family: "TiemposTextWeb-Regular","Georgia";
+  /*font-family: brandontext, "Helvetica Neue", Helvetica, sans-serif;*/
+/*  font-size:120px; */
+  font-size:100px;
   text-anchor: middle;
 }
 
 #vis .sub-title {
+  font-family: "TiemposTextWeb-Regular","Georgia";
   font-size:80px;
   text-anchor: middle;
 }

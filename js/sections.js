@@ -163,18 +163,28 @@ var scrollVis = function () {
       .call(xAxisBar);
     g.select('.x.axis').style('opacity', 0);
 
-    // count openvis title
+    // count openvis title`
     g.append('text')
       .attr('class', 'title openvis-title')
       .attr('x', width / 2)
       .attr('y', height / 3)
-      .text('2013');
+      .text('Machine Bias');
 
     g.append('text')
       .attr('class', 'sub-title openvis-title')
       .attr('x', width / 2)
       .attr('y', (height / 3) + (height / 5))
-      .text('OpenVis Conf');
+      .text(' ');
+
+    g.append('image')
+    .attr('xlink:href','img/subgroups.png')
+    .attr('class', 'dataset-image')
+    // .attr('height', '332')
+    .attr('height', '632')
+    .attr('width', '600')
+    // .attr('x', width / 1)
+    // .attr('y', (height / 3) + (height / 5))
+    .attr('opacity', 0);
 
     g.selectAll('.openvis-title')
       .attr('opacity', 0);
@@ -328,6 +338,11 @@ var scrollVis = function () {
    *
    */
 
+
+
+
+
+
   /**
    * showTitle - initial title
    *
@@ -346,6 +361,12 @@ var scrollVis = function () {
       .transition()
       .duration(600)
       .attr('opacity', 1.0);
+    
+    g.selectAll('.dataset-image')
+      .transition()
+      // .attr("cy", "90%")
+      .duration(0)
+      .attr('opacity', 1.0);
   }
 
   /**
@@ -353,6 +374,7 @@ var scrollVis = function () {
    *
    * hides: intro title
    * hides: square grid
+   * hides: dataset image
    * shows: filler count title
    *
    */
@@ -363,6 +385,11 @@ var scrollVis = function () {
       .attr('opacity', 0);
 
     g.selectAll('.square')
+      .transition()
+      .duration(0)
+      .attr('opacity', 0);
+
+    g.selectAll('.dataset-image')
       .transition()
       .duration(0)
       .attr('opacity', 0);
