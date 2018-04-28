@@ -204,9 +204,68 @@ var scrollVis = function () {
       .attr('opacity', 0);
 
 //circles  
+    // var data = [34,25,23];
+
+//     var groups = svg.selectAll("g")
+//     .data(data)
+//     .enter()
+//     .append("g");
+
+//     groups.attr("transform", function(d, i) {
+//   var x = 78 * i + 100;
+//     var y = 44 * i + 93;
+//     return "translate(" + [x,y] + ")";
+// })
+  
+// var circles = g.append("circle")
+//     .attr({
+//       cx: function(d,i){
+//         return 0;
+//       },
+//       cy: function(d,i){
+//         return 0;
+//       },
+//       r: 18,
+//       fill: "#BADBDA",
+//       stroke: "#2F3550",
+//       "stroke-width": 2.4192
+//     .attr('class', 'many-circles')
+//     });
+    
+// var label = groups.append("text")
+//     .text(function(d){
+//       return d;
+//     })
+//     .attr({
+//       "alignment-baseline": "middle",
+//       "text-anchor": "middle"
+//     });
 
     // g.append('ten-circles')
     //   .attr('class', 'many-circles');
+
+//     d3.json("circles.json", function(json) {
+//     /* Define the data for the circles */
+//     var elem = g.selectAll("g myCircleText")
+//         .data(json.nodes);
+//         // .attr('class', 'many-circles');
+  
+//     /*Create and place the "blocks" containing the circle and the text */  
+//     var elemEnter = elem.enter()
+//       .append("g")
+//       .attr("transform", function(d){return "translate("+d.x+",80)"});
+ 
+//     /*Create the circle for each block */
+//     var circle = elemEnter.append("circle")
+//       .attr("r", function(d){return d.r} )
+//       .attr("stroke","black")
+//       .attr("fill", "white");
+ 
+//     /* Create the text for each block */
+//     elemEnter.append("text")
+//       .attr("dx", function(d){return -20})
+//       .text(function(d){return d.label});
+// });
 
     g.append("svg")
       .attr("width",630)
@@ -219,28 +278,23 @@ var scrollVis = function () {
       .style("fill", "purple");
       // .attr('opacity', 0);
 
-    // g.append("circle")
-    //   .attr('class', 'score-circle')
-    //   .attr("cx", 25)
-    //   .attr("cy", 25)
-    //   .attr("r", 25)
-    //   .style("fill", "purple")
-    //   .delay(function(d,i){
-    //     return i * 50;
-    //   })
-    //   .duration(250);
-    //   // .attr('opacity', 0);
+    g.append("circle")
+      .attr('class', 'many-circles')
+      .attr("cx", 50)
+      .attr("cy", 25)
+      .attr("r", 25)
+      .style("fill", "white");
 
-    // g.append("circle")
-    //   .attr('class', 'score-circle')
-    //   .attr("cx", 500)
-    //   .attr("cy", 500)
-    //   .attr("r", 25)
-    //   .style("fill", "orange")
-    //   .delay(function(d,i){
-    //     return i * 50;
-    //   })
-    //   .duration(250);
+    g.append("circle")
+      .attr('class', 'many-circles')
+      .attr("cx", 500)
+      .attr("cy", 500)
+      .attr("r", 25)
+      .style("fill", "orange");
+      // .delay(function(d,i){
+      //   return i * 50;
+      // })
+      // .duration(250);
 
 
 
