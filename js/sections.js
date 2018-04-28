@@ -192,16 +192,32 @@ var scrollVis = function () {
       .attr('class', 'title count-title highlight')
       .attr('x', width / 2)
       .attr('y', height / 3)
-      .text('180');
+      .text('Scores');
 
     g.append('text')
       .attr('class', 'sub-title count-title')
       .attr('x', width / 2)
       .attr('y', (height / 3) + (height / 5))
-      .text('Filler Words');
+      .text(' ');
 
-    g.append('ten-circles')
-      .attr('class', 'many-circles');
+    g.selectAll('.count-title')
+      .attr('opacity', 0);
+
+//circles  
+
+    // g.append('ten-circles')
+    //   .attr('class', 'many-circles');
+
+    g.append("svg")
+      .attr("width",630)
+      .attr("height",560)
+      .append("circle")
+      .attr('class', 'many-circles')
+      .attr("cx", 25)
+      .attr("cy", 25)
+      .attr("r", 25)
+      .style("fill", "purple");
+      // .attr('opacity', 0);
 
     // g.append("circle")
     //   .attr('class', 'score-circle')
@@ -227,8 +243,7 @@ var scrollVis = function () {
     //   .duration(250);
 
 
-    g.selectAll('.count-title')
-      .attr('opacity', 0);
+
 
     // square grid
     // @v4 Using .merge here to ensure
