@@ -303,15 +303,15 @@ var scrollVis = function () {
 
 
   var circleData = [
-     { "cx": 70, "cy": 70, "radius": 20, "color" : "black", "score": 1},
-     { "cx": 20, "cy": 70, "radius": 20, "color" : "green", "score": 2},
-     // { "cx": 30, "cy": 70, "radius": 20, "color" : "black" },
+     { "cx": 100, "cy": 500, "radius": 20, "color" : "black", "score": 1},
+     { "cx": 200, "cy": 500, "radius": 20, "color" : "green", "score": 2},
+     { "cx": 300, "cy": 500, "radius": 20, "color" : "brown", "score": 3},
      // { "cx": 250, "cy": 70, "radius": 20, "color" : "green" },
      // { "cx": 410, "cy": 70, "radius": 20, "color" : "black" },
      // { "cx": 200, "cy": 70, "radius": 20, "color" : "green" },
      // { "cx": 700, "cy": 70, "radius": 20, "color" : "black" },
      // { "cx": 100, "cy": 70, "radius": 20, "color" : "green" },
-     { "cx": 500, "cy": 70, "radius": 20, "color" : "purple", "score": 3}];
+     { "cx": 500, "cy": 500, "radius": 20, "color" : "purple", "score": 10}];
 
 // view port svg gontainer was already instantiated above
 
