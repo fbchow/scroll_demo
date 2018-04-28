@@ -305,6 +305,12 @@ var scrollVis = function () {
   var circleData = [
      { "cx": 70, "cy": 70, "radius": 20, "color" : "black" },
      { "cx": 20, "cy": 70, "radius": 20, "color" : "green" },
+     // { "cx": 30, "cy": 70, "radius": 20, "color" : "black" },
+     // { "cx": 250, "cy": 70, "radius": 20, "color" : "green" },
+     // { "cx": 410, "cy": 70, "radius": 20, "color" : "black" },
+     // { "cx": 200, "cy": 70, "radius": 20, "color" : "green" },
+     // { "cx": 700, "cy": 70, "radius": 20, "color" : "black" },
+     // { "cx": 100, "cy": 70, "radius": 20, "color" : "green" },
      { "cx": 500, "cy": 70, "radius": 20, "color" : "purple" }];
 
 // view port svg gontainer was already instantiated above
@@ -322,13 +328,17 @@ var circleAttributes = circles
                        .attr("r", function (d) { return d.radius; })
                        .attr('class', 'many-circles')
                        .style("fill", function (d) { return d.color; });
+                       // .text('hello')
+                       // .attr('font-size', "20px")
+                       // .attr('text-anchor', "middle")
+                       // .attr('fill', "red");
 
 
 //Add the SVG Text Element to the svgContainer
-var text = g.selectAll("text")
+var text = g.selectAll("circles")
                         .data(circleData)
                         .enter()
-                        .attr('class', 'many-circles')
+                        // .attr('class', 'many-circles')
                         .append("text");
 
 //Add SVG Text Element Attributes
