@@ -303,15 +303,15 @@ var scrollVis = function () {
 
 
   var circleData = [
-     { "cx": 70, "cy": 70, "radius": 20, "color" : "black" },
-     { "cx": 20, "cy": 70, "radius": 20, "color" : "green" },
+     { "cx": 70, "cy": 70, "radius": 20, "color" : "black", "score": 1},
+     { "cx": 20, "cy": 70, "radius": 20, "color" : "green", "score": 2},
      // { "cx": 30, "cy": 70, "radius": 20, "color" : "black" },
      // { "cx": 250, "cy": 70, "radius": 20, "color" : "green" },
      // { "cx": 410, "cy": 70, "radius": 20, "color" : "black" },
      // { "cx": 200, "cy": 70, "radius": 20, "color" : "green" },
      // { "cx": 700, "cy": 70, "radius": 20, "color" : "black" },
      // { "cx": 100, "cy": 70, "radius": 20, "color" : "green" },
-     { "cx": 500, "cy": 70, "radius": 20, "color" : "purple" }];
+     { "cx": 500, "cy": 70, "radius": 20, "color" : "purple", "score": 3}];
 
 // view port svg gontainer was already instantiated above
 
@@ -345,7 +345,8 @@ var text = g.selectAll("circles")
 var textLabels = text
                  .attr("x", function(d) { return d.cx; })
                  .attr("y", function(d) { return d.cy; })
-                 .text( function (d) { return "( " + d.cx + ", " + d.cy +" )"; })
+                 // .text( function (d) { return "( " + d.cx + ", " + d.cy +" )"; })
+                .text( function (d) { return d.score; })
                  .attr('class', 'many-circles')
                  .attr("font-family", "sans-serif")
                  .attr("font-size", "20px")
