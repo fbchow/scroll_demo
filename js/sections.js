@@ -267,34 +267,79 @@ var scrollVis = function () {
 //       .text(function(d){return d.label});
 // });
 
-    g.append("svg")
-      .attr("width",630)
-      .attr("height",560)
-      .append("circle")
-      .attr('class', 'many-circles')
-      .attr("cx", 25)
-      .attr("cy", 25)
-      .attr("r", 25)
-      .style("fill", "purple");
-      // .attr('opacity', 0);
+    // g.append("svg")
+    //   .attr("width",630)
+    //   .attr("height",560)
+    //   .append("circle")
+    //   .attr('class', '1 many-circles')
+    //   .attr("cx", 25)
+    //   .attr("cy", 25)
+    //   .attr("r", 25)
+    //   .style("fill", "purple");
+    //   // .attr('opacity', 0);
 
-    g.append("circle")
-      .attr('class', 'many-circles')
-      .attr("cx", 50)
-      .attr("cy", 25)
-      .attr("r", 25)
-      .style("fill", "white");
+    // g.append("circle")
+    //   .attr('class', '2 many-circles')
+    //   .attr("cx", 50)
+    //   .attr("cy", 25)
+    //   .attr("r", 25)
+    //   .style("fill", "white");
 
-    g.append("circle")
-      .attr('class', 'many-circles')
-      .attr("cx", 500)
-      .attr("cy", 500)
-      .attr("r", 25)
-      .style("fill", "orange");
+    // g.append("circle")
+    //   .attr('class', '3 many-circles')
+    //   .attr("cx", 500)
+    //   .attr("cy", 500)
+    //   .attr("r", 25)
+    //   .style("fill", "orange");
+      // .append('text', 'hi');
       // .delay(function(d,i){
       //   return i * 50;
       // })
       // .duration(250);
+// 
+    // g.selectAll('.many-circles')
+      // .append
+      // .attr('opacity', 0);
+
+
+  var circleData = [
+     { "cx": 70, "cy": 70, "radius": 20, "color" : "black" },
+     { "cx": 20, "cy": 70, "radius": 20, "color" : "green" },
+     { "cx": 500, "cy": 70, "radius": 20, "color" : "purple" }];
+
+// view port svg gontainer was already instantiated above
+
+  //Add circles to the svgContainer
+var circles = g.selectAll("circle")
+                          .data(circleData)
+                          .enter()
+                          .append("circle");
+
+//Add the circle attributes
+var circleAttributes = circles
+                       .attr("cx", function (d) { return d.cx; })
+                       .attr("cy", function (d) { return d.cy; })
+                       .attr("r", function (d) { return d.radius; })
+                       .attr('class', 'many-circles')
+                       .style("fill", function (d) { return d.color; });
+
+
+//Add the SVG Text Element to the svgContainer
+var text = g.selectAll("text")
+                        .data(circleData)
+                        .enter()
+                        .attr('class', 'many-circles')
+                        .append("text");
+
+//Add SVG Text Element Attributes
+var textLabels = text
+                 .attr("x", function(d) { return d.cx; })
+                 .attr("y", function(d) { return d.cy; })
+                 .text( function (d) { return "( " + d.cx + ", " + d.cy +" )"; })
+                 .attr('class', 'many-circles')
+                 .attr("font-family", "sans-serif")
+                 .attr("font-size", "20px")
+                 .attr("fill", "red");
 
 
 
