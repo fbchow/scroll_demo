@@ -202,6 +202,15 @@ var scrollVis = function () {
       .attr('y', (height / 3) + (height / 5))
       .text('Filler Words');
 
+    g.append("circle")
+      .attr('class', 'score-circle')
+      .attr("cx", 25)
+      .attr("cy", 25)
+      .attr("r", 25)
+      .style("fill", "purple")
+      // .attr('opacity', 0);
+
+
     g.selectAll('.count-title')
       .attr('opacity', 0);
 
@@ -376,7 +385,7 @@ var scrollVis = function () {
    * hides: square grid
    * hides: dataset image
    * shows: filler count title
-   *
+   * shows: circles
    */
   function showFillerTitle() {
     g.selectAll('.openvis-title')
