@@ -182,8 +182,6 @@ var scrollVis = function () {
     // .attr('height', '332')
     .attr('height', '632')
     .attr('width', '600')
-    // .attr('x', width / 1)
-    // .attr('y', (height / 3) + (height / 5))
     .attr('opacity', 0);
 
     g.selectAll('.openvis-title')
@@ -201,6 +199,9 @@ var scrollVis = function () {
       .attr('x', width / 2)
       .attr('y', (height / 3) + (height / 5))
       .text('Filler Words');
+
+    g.append('ten-circles')
+      .attr('class', 'many-circles');
 
     // g.append("circle")
     //   .attr('class', 'score-circle')
@@ -422,13 +423,21 @@ var scrollVis = function () {
       .transition()
       .duration(600)
       .attr('opacity', 1.0);
+
+    g.selectAll('.many-circles')
+      .transition()
+      .duration(600)
+      .attr('opacity', 1.0);
+
   }
+
 
   /**
    * showGrid - square grid
    *
    * hides: filler count title
    * hides: filler highlight in grid
+   * hides: circles
    * shows: square grid
    *
    */
@@ -437,6 +446,12 @@ var scrollVis = function () {
       .transition()
       .duration(0)
       .attr('opacity', 0);
+
+    g.selectAll('.many-circles')
+      .transition()
+      .duration(600)
+      .attr('opacity', 0);
+
 
     g.selectAll('.square')
       .transition()
