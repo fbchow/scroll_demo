@@ -202,13 +202,28 @@ var scrollVis = function () {
       .attr('y', (height / 3) + (height / 5))
       .text('Filler Words');
 
-    g.append("circle")
-      .attr('class', 'score-circle')
-      .attr("cx", 25)
-      .attr("cy", 25)
-      .attr("r", 25)
-      .style("fill", "purple")
-      // .attr('opacity', 0);
+    // g.append("circle")
+    //   .attr('class', 'score-circle')
+    //   .attr("cx", 25)
+    //   .attr("cy", 25)
+    //   .attr("r", 25)
+    //   .style("fill", "purple")
+    //   .delay(function(d,i){
+    //     return i * 50;
+    //   })
+    //   .duration(250);
+    //   // .attr('opacity', 0);
+
+    // g.append("circle")
+    //   .attr('class', 'score-circle')
+    //   .attr("cx", 500)
+    //   .attr("cy", 500)
+    //   .attr("r", 25)
+    //   .style("fill", "orange")
+    //   .delay(function(d,i){
+    //     return i * 50;
+    //   })
+    //   .duration(250);
 
 
     g.selectAll('.count-title')
