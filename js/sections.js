@@ -297,22 +297,19 @@ var scrollVis = function () {
       // })
       // .duration(250);
 // 
-    // g.selectAll('.many-circles')
-      // .append
-      // .attr('opacity', 0);
 
 
   var circleData = [
-     { "cx": 100, "cy": 200, "radius": 15, "color" : "#91BCAB", "score": 1},
-     { "cx": 150, "cy": 300, "radius": 15, "color" : "#91BCAB", "score": 2},
-     { "cx": 200, "cy": 400, "radius": 15, "color" : "#9B4447", "score": 3},
-     { "cx": 250, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 4},
-     { "cx": 300, "cy": 460, "radius": 15, "color" : "#9B4447", "score": 5},
-     { "cx": 350, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 6},
-     { "cx": 400, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 7},
-     { "cx": 450, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 8},
-     { "cx": 500, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 9},
-     { "cx": 550, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 10}];
+     { "cx": 100, "cy": 500, "radius": 15, "color" : "#91BCAB", "score": 1, "label": "low risk"},
+     { "cx": 150, "cy": 500, "radius": 15, "color" : "#91BCAB", "score": 2, "label": "low risk"},
+     { "cx": 200, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 3, "label": "low risk"},
+     { "cx": 250, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 4, "label": "low risk"},
+     { "cx": 300, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 5, "label": "low risk"},
+     { "cx": 350, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 6, "label": "low risk"},
+     { "cx": 400, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 7, "label": "low risk"},
+     { "cx": 450, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 8, "label": "low risk"},
+     { "cx": 500, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 9, "label": "low risk"},
+     { "cx": 550, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 10, "label": "high risk"}];
 
 // view port svg gontainer was already instantiated above
 
@@ -320,7 +317,9 @@ var scrollVis = function () {
 var circles = g.selectAll("circle")
                           .data(circleData)
                           .enter()
-                          .append("circle");
+                          .append("circle")
+                          .attr('opacity', 0);
+
 
 //Add the circle attributes
 var circleAttributes = circles
@@ -328,7 +327,9 @@ var circleAttributes = circles
                        .attr("cy", function (d) { return d.cy; })
                        .attr("r", function (d) { return d.radius; })
                        .attr('class', 'many-circles')
-                       .style("fill", function (d) { return d.color; });
+                       .style("fill", function (d) { return d.color; })
+                       .attr('opacity', 0);
+
                        // .text('hello')
                        // .attr('font-size', "20px")
                        // .attr('text-anchor', "middle")
@@ -336,14 +337,16 @@ var circleAttributes = circles
 
 
 //Add the SVG Text Element to the svgContainer
-var text = g.selectAll("circles")
+var circleOutline = g.selectAll("circles")
                         .data(circleData)
                         .enter()
                         // .attr('class', 'many-circles')
-                        .append("text");
+                        .append("text")
+                        .attr('opacity', 0);
+
 
 //Add SVG Text Element Attributes
-var textLabels = text
+var circleText = circleOutline
                  .attr("x", function(d) { return d.cx; })
                  .attr("y", function(d) { return d.cy; })
                  // .text( function (d) { return "( " + d.cx + ", " + d.cy +" )"; })
@@ -351,8 +354,30 @@ var textLabels = text
                  .attr('class', 'many-circles')
                  .attr("font-family", "sans-serif")
                  .attr("font-size", "10px")
-                 .attr("fill", "white");
+                 .attr("fill", "white")
+                 .attr('opacity', 0);
 
+ 
+    g.selectAll('.many-circles')
+      .attr('opacity', 0);
+
+// var circleLabels = circleText
+//                .attr('class', 'many-circles')
+//                 .attr('y', 350)
+//                 .attr('x', function(d) { return d.cx + 50; }) 
+//                 .text( function (d) { return d.label; })
+//                  .attr('class', 'many-circles')
+//                  .attr("font-family", "sans-serif")
+//                  .attr("font-size", "10px")
+//                  .attr("fill", "black");
+
+
+ // var circleLabels = g.selectAll("circles")
+ // g.append("text")
+ //               .attr('class', 'many-circles')
+ //                .attr('y', 90)
+ //                .attr('x', function(d, i){return (i+1) * 50;} 
+ //                .text(function(d) {return d.score;});
 
 
 
@@ -575,7 +600,7 @@ var textLabels = text
 
     g.selectAll('.many-circles')
       .transition()
-      .duration(600)
+      .duration(0)
       .attr('opacity', 0);
 
 
