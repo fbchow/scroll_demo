@@ -174,7 +174,7 @@ var scrollVis = function () {
       .attr('class', 'sub-title openvis-title')
       .attr('x', width / 2)
       .attr('y', (height / 3) + (height / 5))
-      .text(' ');
+      .text(' ')
 
     g.append('image')
     .attr('xlink:href','img/subgroups.png')
@@ -201,6 +201,13 @@ var scrollVis = function () {
       .text(' ');
 
     g.selectAll('.count-title')
+      .attr('opacity', 0);
+
+    g.append('text')
+      .attr('class', 'small-title tenthousand-title')
+      .attr('x', width / 2)
+      .attr('y', height / 3)
+      .text('10,000 defendants')
       .attr('opacity', 0);
 
 //circles  
@@ -358,8 +365,8 @@ var circleText = circleOutline
                  .attr('opacity', 0);
 
  
-    g.selectAll('.many-circles')
-      .attr('opacity', 0);
+    // g.selectAll('.many-circles')
+    //   .attr('opacity', 0);
 
 // var circleLabels = circleText
 //                .attr('class', 'many-circles')
@@ -381,6 +388,9 @@ var circleText = circleOutline
 
 
 
+
+
+
     // square grid
     // @v4 Using .merge here to ensure
     // new and old data have same attrs applied
@@ -392,6 +402,9 @@ var circleText = circleOutline
       .attr('width', squareSize)
       .attr('height', squareSize)
       .attr('fill', '#fff')
+      // .classed('fill-square', true)
+      // .classed('female-square', function (d) { return d.female; })
+      // .classed('male-square', function (d) { return d.male; })
       .classed('fill-square', function (d) { return d.filler; })
       .attr('x', function (d) { return d.x;})
       .attr('y', function (d) { return d.y;})
@@ -442,7 +455,7 @@ var circleText = circleOutline
       .attr('class', 'sub-title cough cough-title')
       .attr('x', width / 2)
       .attr('y', 60)
-      .text('cough')
+      .text('bias?')
       .attr('opacity', 0);
 
     // arrowhead from
@@ -543,6 +556,12 @@ var circleText = circleOutline
       // .attr("cy", "90%")
       .duration(0)
       .attr('opacity', 1.0);
+
+    g.selectAll('.many-circles')
+      .transition()
+      .duration(600)
+      .attr('opacity', 0);
+
   }
 
   /**
@@ -577,7 +596,7 @@ var circleText = circleOutline
 
     g.selectAll('.many-circles')
       .transition()
-      .duration(600)
+      .duration(0)
       .attr('opacity', 1.0);
 
   }
@@ -598,10 +617,10 @@ var circleText = circleOutline
       .duration(0)
       .attr('opacity', 0);
 
-    g.selectAll('.many-circles')
+   g.selectAll('.many-circles')
       .transition()
       .duration(0)
-      .attr('opacity', 0);
+      .attr('opacity', 0); 
 
 
     g.selectAll('.square')
@@ -609,15 +628,25 @@ var circleText = circleOutline
       .duration(600)
       .delay(function (d) {
         return 5 * d.row;
+        // return 10,00 rows for each subject
+      // return 10 * d.row;
+
       })
       .attr('opacity', 1.0)
       .attr('fill', '#ddd');
+
+    g.selectAll('.tenthousand-title')
+      .transition()
+      .duration(600)
+      .attr('opacity', 0)
+
   }
 
   /**
    * highlightGrid - show fillers in grid
    *
    * hides: barchart, text and axis
+   * show: 10,000 title  
    * shows: square grid and highlighted
    *  filler words. also ensures squares
    *  are moved back to their place in the grid
@@ -641,6 +670,13 @@ var circleText = circleOutline
       .attr('opacity', 1.0)
       .attr('fill', '#ddd');
 
+    g.selectAll('.tenthousand-title')
+      .transition()
+      .duration(600)
+      .attr('opacity', 1.0)
+
+
+
     // use named transition to ensure
     // move happens even if other
     // transitions are interrupted.
@@ -663,7 +699,7 @@ var circleText = circleOutline
 
   /**
    * showBar - barchart
-   *
+   * hides: 10000
    * hides: square grid
    * hides: histogram
    * shows: barchart
@@ -672,6 +708,12 @@ var circleText = circleOutline
   function showBar() {
     // ensure bar axis is set
     showAxis(xAxisBar);
+
+
+    g.selectAll('.tenthousand-title')
+      .transition()
+      .duration(0)
+      .attr('opacity', 0)
 
     g.selectAll('.square')
       .transition()

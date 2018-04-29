@@ -75,7 +75,13 @@ body {
   text-anchor: middle;
 }
 
-#ten-circles {
+#vis .small-title{
+  font-family: "TiemposTextWeb-Regular","Georgia";
+  font-size:20px;
+  text-anchor: middle;
+}
+
+.many-circles {
   display: inline-block;
   position: fixed;
   top: 60px;
