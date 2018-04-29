@@ -300,16 +300,16 @@ var scrollVis = function () {
 
 
   var circleData = [
-     { "cx": 100, "cy": 500, "radius": 15, "color" : "#91BCAB", "score": 1, "label": "low risk"},
-     { "cx": 150, "cy": 500, "radius": 15, "color" : "#91BCAB", "score": 2, "label": "low risk"},
-     { "cx": 200, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 3, "label": "low risk"},
-     { "cx": 250, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 4, "label": "low risk"},
-     { "cx": 300, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 5, "label": "low risk"},
-     { "cx": 350, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 6, "label": "low risk"},
-     { "cx": 400, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 7, "label": "low risk"},
-     { "cx": 450, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 8, "label": "low risk"},
-     { "cx": 500, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 9, "label": "low risk"},
-     { "cx": 550, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 10, "label": "high risk"}];
+     { "cx": 100, "cy": 450, "radius": 15, "color" : "#91BCAB", "score": 1, "label": "low risk"},
+     { "cx": 150, "cy": 450, "radius": 15, "color" : "#91BCAB", "score": 2, "label": "low risk"},
+     { "cx": 200, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 3, "label": "low risk"},
+     { "cx": 250, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 4, "label": "low risk"},
+     { "cx": 300, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 5, "label": "low risk"},
+     { "cx": 350, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 6, "label": "low risk"},
+     { "cx": 400, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 7, "label": "low risk"},
+     { "cx": 450, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 8, "label": "low risk"},
+     { "cx": 500, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 9, "label": "low risk"},
+     { "cx": 550, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 10, "label": "high risk"}];
 
 // view port svg gontainer was already instantiated above
 
@@ -572,7 +572,7 @@ var circleText = circleOutline
 
     g.selectAll('.count-title')
       .transition()
-      .duration(600)
+      .duration(600)  
       .attr('opacity', 1.0);
 
     g.selectAll('.many-circles')
