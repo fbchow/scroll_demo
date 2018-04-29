@@ -94,7 +94,8 @@ body {
 }
 
 .highlight {
-  fill: #008080;
+  /*fill: #008080;*/
+  fill: #3D484B;
   font-weight: bold;
 }
 

@@ -303,15 +303,16 @@ var scrollVis = function () {
 
 
   var circleData = [
-     { "cx": 100, "cy": 500, "radius": 20, "color" : "black", "score": 1},
-     { "cx": 200, "cy": 500, "radius": 20, "color" : "green", "score": 2},
-     { "cx": 300, "cy": 500, "radius": 20, "color" : "brown", "score": 3},
-     // { "cx": 250, "cy": 70, "radius": 20, "color" : "green" },
-     // { "cx": 410, "cy": 70, "radius": 20, "color" : "black" },
-     // { "cx": 200, "cy": 70, "radius": 20, "color" : "green" },
-     // { "cx": 700, "cy": 70, "radius": 20, "color" : "black" },
-     // { "cx": 100, "cy": 70, "radius": 20, "color" : "green" },
-     { "cx": 500, "cy": 500, "radius": 20, "color" : "purple", "score": 10}];
+     { "cx": 100, "cy": 200, "radius": 15, "color" : "#91BCAB", "score": 1},
+     { "cx": 150, "cy": 300, "radius": 15, "color" : "#91BCAB", "score": 2},
+     { "cx": 200, "cy": 400, "radius": 15, "color" : "#9B4447", "score": 3},
+     { "cx": 250, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 4},
+     { "cx": 300, "cy": 460, "radius": 15, "color" : "#9B4447", "score": 5},
+     { "cx": 350, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 6},
+     { "cx": 400, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 7},
+     { "cx": 450, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 8},
+     { "cx": 500, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 9},
+     { "cx": 550, "cy": 500, "radius": 15, "color" : "#9B4447", "score": 10}];
 
 // view port svg gontainer was already instantiated above
 
@@ -349,8 +350,8 @@ var textLabels = text
                 .text( function (d) { return d.score; })
                  .attr('class', 'many-circles')
                  .attr("font-family", "sans-serif")
-                 .attr("font-size", "20px")
-                 .attr("fill", "red");
+                 .attr("font-size", "10px")
+                 .attr("fill", "white");
 
 
 
