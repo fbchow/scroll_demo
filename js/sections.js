@@ -211,17 +211,33 @@ var scrollVis = function () {
       .attr('opacity', 0);
 
 //circles  
+
+  g.append('text')
+      .attr('class', 'small-title circles-title')
+      .attr('x', width / 1.10)
+      .attr('y', height / 1.3)
+      .text('high risk');
+
+  g.append('text')
+      .attr('class', 'small-title circles-title')
+      .attr('x', width / 5)
+      .attr('y', height / 1.3)
+      .text('low risk');
+
+
+
+
   var circleData = [
-     { "cx": 100, "cy": 450, "radius": 15, "color" : "#91BCAB", "score": 1, "label": "low risk"},
-     { "cx": 150, "cy": 450, "radius": 15, "color" : "#91BCAB", "score": 2, "label": "low risk"},
-     { "cx": 200, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 3, "label": "low risk"},
-     { "cx": 250, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 4, "label": "low risk"},
-     { "cx": 300, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 5, "label": "low risk"},
-     { "cx": 350, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 6, "label": "low risk"},
-     { "cx": 400, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 7, "label": "low risk"},
+     { "cx": 100, "cy": 450, "radius": 15, "color" : "#efdcdc", "score": 1, "label": "low risk"},
+     { "cx": 150, "cy": 450, "radius": 15, "color" : " #d8a6a8", "score": 2, "label": "low risk"},
+     { "cx": 200, "cy": 450, "radius": 15, "color" : "#c98385", "score": 3, "label": "low risk"},
+     { "cx": 250, "cy": 450, "radius": 15, "color" : "#c17174", "score": 4, "label": "low risk"},
+     { "cx": 300, "cy": 450, "radius": 15, "color" : "#b95f62", "score": 5, "label": "low risk"},
+     { "cx": 350, "cy": 450, "radius": 15, "color" : "#b14e51", "score": 6, "label": "low risk"},
+     { "cx": 400, "cy": 450, "radius": 15, "color" : "#a04649", "score": 7, "label": "low risk"},
      { "cx": 450, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 8, "label": "low risk"},
      { "cx": 500, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 9, "label": "low risk"},
-     { "cx": 550, "cy": 450, "radius": 15, "color" : "#9B4447", "score": 10, "label": "high risk"}];
+     { "cx": 550, "cy": 450, "radius": 15, "color" : "#471f20", "score": 10, "label": "high risk"}];
 
 // view port svg gontainer was already instantiated above
 
@@ -414,7 +430,7 @@ var circleText = circleOutline
    * hides: count title
    * (no previous step to hide)
    * shows: intro title
-   *
+   * introduce: circles
    */
   function showTitle() {
     g.selectAll('.count-title')
@@ -434,6 +450,11 @@ var circleText = circleOutline
       .attr('opacity', 1.0);
 
     g.selectAll('.many-circles')
+      .transition()
+      .duration(600)
+      .attr('opacity', 0);
+
+        g.selectAll('.circles-title')
       .transition()
       .duration(600)
       .attr('opacity', 0);
@@ -475,6 +496,11 @@ var circleText = circleOutline
       .duration(0)
       .attr('opacity', 1.0);
 
+    g.selectAll('.circles-title')
+      .transition()
+      .duration(0)
+      .attr('opacity', 1.0);
+
   }
 
 
@@ -494,6 +520,12 @@ var circleText = circleOutline
       .attr('opacity', 0);
 
    g.selectAll('.many-circles')
+      .transition()
+      .duration(0)
+      .attr('opacity', 0); 
+
+
+   g.selectAll('.circles-title')
       .transition()
       .duration(0)
       .attr('opacity', 0); 
@@ -550,6 +582,8 @@ var circleText = circleOutline
       .transition()
       .duration(600)
       .attr('opacity', 1.0)
+
+
 
 
 
