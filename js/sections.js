@@ -523,10 +523,10 @@ var circleText = circleOutline
       .duration(0)
       .attr('opacity', 0);
 
-    g.selectAll('.square')
-      .transition()
-      .duration(0)
-      .attr('opacity', 0);
+    // g.selectAll('.square')
+    //   .transition()
+    //   .duration(0)
+    //   .attr('opacity', 0);
 
     g.selectAll('.dataset-image')
       .transition()
@@ -594,17 +594,17 @@ var circleText = circleOutline
     .attr('opacity', 1.0);
 
 
-    g.selectAll('.square')
-      .transition()
-      .duration(600)
-      .delay(function (d) {
-        return 5 * d.row;
-        // return 10,00 rows for each subject
-      // return 10 * d.row;
+    // g.selectAll('.square')
+    //   .transition()
+    //   .duration(600)
+    //   .delay(function (d) {
+    //     return 5 * d.row;
+    //     // return 10,00 rows for each subject
+    //   // return 10 * d.row;
 
-      })
-      .attr('opacity', 1.0)
-      .attr('fill', '#ddd');
+    //   })
+    //   .attr('opacity', 1.0)
+    //   .attr('fill', '#ddd');
 
     g.selectAll('.tenthousand-title')
       .transition()
@@ -635,11 +635,11 @@ var circleText = circleOutline
       .attr('opacity', 0);
 
 
-    g.selectAll('.square')
-      .transition()
-      .duration(0)
-      .attr('opacity', 1.0)
-      .attr('fill', '#ddd');
+    // g.selectAll('.square')
+    //   .transition()
+    //   .duration(0)
+    //   .attr('opacity', 1.0)
+    //   .attr('fill', '#ddd');
 
     g.selectAll('.tenthousand-title')
       .transition()
@@ -692,10 +692,10 @@ var circleText = circleOutline
       .duration(0)
       .attr('opacity', 0)
 
-    g.selectAll('.square')
-      .transition()
-      .duration(800)
-      .attr('opacity', 0);
+    // g.selectAll('.square')
+    //   .transition()
+    //   .duration(800)
+    //   .attr('opacity', 0);
 
     g.selectAll('.fill-square')
       .transition()
