@@ -211,101 +211,6 @@ var scrollVis = function () {
       .attr('opacity', 0);
 
 //circles  
-    // var data = [34,25,23];
-
-//     var groups = svg.selectAll("g")
-//     .data(data)
-//     .enter()
-//     .append("g");
-
-//     groups.attr("transform", function(d, i) {
-//   var x = 78 * i + 100;
-//     var y = 44 * i + 93;
-//     return "translate(" + [x,y] + ")";
-// })
-  
-// var circles = g.append("circle")
-//     .attr({
-//       cx: function(d,i){
-//         return 0;
-//       },
-//       cy: function(d,i){
-//         return 0;
-//       },
-//       r: 18,
-//       fill: "#BADBDA",
-//       stroke: "#2F3550",
-//       "stroke-width": 2.4192
-//     .attr('class', 'many-circles')
-//     });
-    
-// var label = groups.append("text")
-//     .text(function(d){
-//       return d;
-//     })
-//     .attr({
-//       "alignment-baseline": "middle",
-//       "text-anchor": "middle"
-//     });
-
-    // g.append('ten-circles')
-    //   .attr('class', 'many-circles');
-
-//     d3.json("circles.json", function(json) {
-//     /* Define the data for the circles */
-//     var elem = g.selectAll("g myCircleText")
-//         .data(json.nodes);
-//         // .attr('class', 'many-circles');
-  
-//     /*Create and place the "blocks" containing the circle and the text */  
-//     var elemEnter = elem.enter()
-//       .append("g")
-//       .attr("transform", function(d){return "translate("+d.x+",80)"});
- 
-//     /*Create the circle for each block */
-//     var circle = elemEnter.append("circle")
-//       .attr("r", function(d){return d.r} )
-//       .attr("stroke","black")
-//       .attr("fill", "white");
- 
-//     /* Create the text for each block */
-//     elemEnter.append("text")
-//       .attr("dx", function(d){return -20})
-//       .text(function(d){return d.label});
-// });
-
-    // g.append("svg")
-    //   .attr("width",630)
-    //   .attr("height",560)
-    //   .append("circle")
-    //   .attr('class', '1 many-circles')
-    //   .attr("cx", 25)
-    //   .attr("cy", 25)
-    //   .attr("r", 25)
-    //   .style("fill", "purple");
-    //   // .attr('opacity', 0);
-
-    // g.append("circle")
-    //   .attr('class', '2 many-circles')
-    //   .attr("cx", 50)
-    //   .attr("cy", 25)
-    //   .attr("r", 25)
-    //   .style("fill", "white");
-
-    // g.append("circle")
-    //   .attr('class', '3 many-circles')
-    //   .attr("cx", 500)
-    //   .attr("cy", 500)
-    //   .attr("r", 25)
-    //   .style("fill", "orange");
-      // .append('text', 'hi');
-      // .delay(function(d,i){
-      //   return i * 50;
-      // })
-      // .duration(250);
-// 
-
-
   var circleData = [
      { "cx": 100, "cy": 450, "radius": 15, "color" : "#91BCAB", "score": 1, "label": "low risk"},
      { "cx": 150, "cy": 450, "radius": 15, "color" : "#91BCAB", "score": 2, "label": "low risk"},
@@ -337,10 +242,6 @@ var circleAttributes = circles
                        .style("fill", function (d) { return d.color; })
                        .attr('opacity', 0);
 
-                       // .text('hello')
-                       // .attr('font-size', "20px")
-                       // .attr('text-anchor', "middle")
-                       // .attr('fill', "red");
 
 
 //Add the SVG Text Element to the svgContainer
@@ -363,31 +264,6 @@ var circleText = circleOutline
                  .attr("font-size", "10px")
                  .attr("fill", "white")
                  .attr('opacity', 0);
-
- 
-    // g.selectAll('.many-circles')
-    //   .attr('opacity', 0);
-
-// var circleLabels = circleText
-//                .attr('class', 'many-circles')
-//                 .attr('y', 350)
-//                 .attr('x', function(d) { return d.cx + 50; }) 
-//                 .text( function (d) { return d.label; })
-//                  .attr('class', 'many-circles')
-//                  .attr("font-family", "sans-serif")
-//                  .attr("font-size", "10px")
-//                  .attr("fill", "black");
-
-
- // var circleLabels = g.selectAll("circles")
- // g.append("text")
- //               .attr('class', 'many-circles')
- //                .attr('y', 90)
- //                .attr('x', function(d, i){return (i+1) * 50;} 
- //                .text(function(d) {return d.score;});
-
-
-
 
 
 
