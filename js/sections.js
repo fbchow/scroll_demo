@@ -287,7 +287,8 @@ var circleText = circleOutline
     // square grid
     // @v4 Using .merge here to ensure
     // new and old data have same attrs applied
-    var squares = g.selectAll('.square').data(wordData, function (d) { return d.word; });
+    // var squares = g.selectAll('.square').data(wordData, function (d) { return d.word; });
+    var squares = g.selectAll('.square').data(wordData, function (d) { return d.score_text; });
     var squaresE = squares.enter()
       .append('rect')
       .classed('square', true);
@@ -893,7 +894,8 @@ var circleText = circleOutline
    */
   function groupByWord(words) {
     return d3.nest()
-      .key(function (d) { return d.word; })
+      // .key(function (d) { return d.word; })
+      .key(function (d) { return d.score_text; })
       .rollup(function (v) { return v.length; })
       .entries(words)
       .sort(function (a, b) {return b.value - a.value;});
@@ -968,4 +970,4 @@ function display(data) {
 }
 
 // load data and display
-d3.tsv('data/words.tsv', display);
+d3.csv('data/risk-dist.csv', display);
