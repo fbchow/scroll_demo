@@ -69,7 +69,7 @@ var scrollVis = function () {
   // @v4 using new scale name
   var coughColorScale = d3.scaleLinear()
     .domain([0, 1.0])
-    .range(['#008080', 'red']);
+    .range(['#008080', '#998478']);
 
   // You could probably get fancy and
   // use just one axis, modifying the
@@ -206,7 +206,8 @@ var scrollVis = function () {
     g.append('text')
       .attr('class', 'small-title tenthousand-title')
       .attr('x', width / 2)
-      .attr('y', height / 3)
+      // .attr('y', (height / 2.95) + (height / 5))
+      .attr('y', height / 0.95)
       .text('10,000 defendants')
       .attr('opacity', 0);
 
@@ -501,6 +502,11 @@ var circleText = circleOutline
       .duration(0)
       .attr('opacity', 1.0);
 
+      g.selectAll('.tenthousand-title')
+      .transition()
+      .duration(600)
+      .attr('opacity', 0);
+
   }
 
 
@@ -546,7 +552,7 @@ var circleText = circleOutline
     g.selectAll('.tenthousand-title')
       .transition()
       .duration(600)
-      .attr('opacity', 0)
+      .attr('opacity', 1.0);
 
   }
 
@@ -581,7 +587,7 @@ var circleText = circleOutline
     g.selectAll('.tenthousand-title')
       .transition()
       .duration(600)
-      .attr('opacity', 1.0)
+      .attr('opacity', 0)
 
 
 
