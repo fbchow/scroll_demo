@@ -207,7 +207,8 @@ var scrollVis = function () {
       .attr('class', 'small-title tenthousand-title')
       .attr('x', width / 2)
       // .attr('y', (height / 2.95) + (height / 5))
-      .attr('y', height / 0.95)
+      .attr('y', height / 0.9999)
+      // .attr('style', 'bold')
       .text('10,000 defendants')
       .attr('opacity', 0);
 
@@ -225,6 +226,46 @@ var scrollVis = function () {
       .attr('y', height / 1.3)
       .text('low risk');
 
+  g.append('image')
+    .attr('xlink:href','img/julia-angwin-1000x1000.jpg')
+    .attr('class', 'author-image julia-angwin')
+    // .attr('height', '332')
+    // .attr('height', '632')
+    .attr('height', '250')
+    .attr('width', '200')
+    // .attr('width', '600')
+    .attr('opacity', 0);
+
+    g.append('image')
+    .attr('xlink:href','img/jeff-larson-1000x1000.jpg')
+    .attr('class', 'author-image jeff-larson')
+    // .attr('height', '332')
+    // .attr('height', '632')
+    .attr('height', '250')
+    .attr('width', '800')
+    // .attr('width', '600')
+    .attr('opacity', 0);
+
+        g.append('image')
+    .attr('xlink:href','img/lauren-kirchner-1000x1000.jpg')
+    .attr('class', 'author-image laurn-kirchner')
+    // .attr('height', '332')
+    // .attr('height', '632')
+    .attr('height', '850')
+    .attr('width', '200')
+    // .attr('width', '600')
+    .attr('opacity', 0);
+
+        g.append('image')
+    .attr('xlink:href','img/suryamattu.jpg')
+    .attr('class', 'author-image suryamattu')
+    // .attr('height', '332')
+    // .attr('height', '632')
+    .attr('height', '650')
+    .attr('width', '300')
+    .attr('x', '250')
+    .attr('y', '140')
+    .attr('opacity', 0);
 
 
 
@@ -281,6 +322,10 @@ var circleText = circleOutline
                  .attr("font-size", "10px")
                  .attr("fill", "white")
                  .attr('opacity', 0);
+
+
+
+
 
 
 
@@ -508,6 +553,12 @@ var circleText = circleOutline
       .duration(600)
       .attr('opacity', 0);
 
+
+    g.selectAll('.author-image')
+    .transition(6000)
+    .duration(600)
+    .attr('opacity', 0);
+
   }
 
 
@@ -536,6 +587,11 @@ var circleText = circleOutline
       .transition()
       .duration(0)
       .attr('opacity', 0); 
+
+  g.selectAll('.author-image')
+    .transition()
+    .duration(660)
+    .attr('opacity', 1.0);
 
 
     g.selectAll('.square')
@@ -590,6 +646,10 @@ var circleText = circleOutline
       .duration(600)
       .attr('opacity', 0)
 
+      g.selectAll('.author-image')
+    .transition()
+    .duration(0)
+    .attr('opacity', 0);
 
 
 
