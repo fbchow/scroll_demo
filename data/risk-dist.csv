@@ -1,4 +1,4 @@
-"","age","c_charge_degree","race","age_cat","score_text","sex","priors_count","days_b_screening_arrest","decile_score","is_recid","two_year_recid","c_jail_in","c_jail_out","length_of_stay"
+"time","age","c_charge_degree","race","age_cat","score_text","sex","priors_count","days_b_screening_arrest","decile_score","is_recid","two_year_recid","c_jail_in","c_jail_out","length_of_stay"
 "1",69,"F","Other","Greater than 45","Low","Male",0,-1,1,0,0,"2013-08-13 06:03:42","2013-08-14 05:41:20",1
 "2",34,"F","African-American","25 - 45","Low","Male",0,-1,3,1,1,"2013-01-26 03:45:27","2013-02-05 05:36:53",10
 "3",24,"F","African-American","Less than 25","Low","Male",4,-1,4,1,1,"2013-04-13 04:58:34","2013-04-14 07:02:04",1

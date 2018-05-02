@@ -346,7 +346,7 @@ var circleText = circleOutline
       // .classed('fill-square', true)
       // .classed('female-square', function (d) { return d.female; })
       // .classed('male-square', function (d) { return d.male; })
-      .classed('fill-square', function (d) { return d.filler; })
+      .classed('fill-square', function (d) { return d.two_year_recid; })
       .attr('x', function (d) { return d.x;})
       .attr('y', function (d) { return d.y;})
       .attr('opacity', 0);
@@ -601,7 +601,7 @@ var circleText = circleOutline
       .transition()
       .duration(600)
       .delay(function (d) {
-        return 5 * d.row;
+        return 10 * d.row;
         // return 10,00 rows for each subject
       // return 10 * d.row;
 
@@ -720,7 +720,7 @@ var circleText = circleOutline
       .transition()
       .duration(800)
       .attr('opacity', 1.0)
-      .attr('fill', function (d) { return d.filler ? '#008080' : '#ddd'; });
+      .attr('fill', function (d) { return d.two_year_recid ? '#9B4447' : '#ddd'; });
   }
 
   /**
@@ -741,10 +741,10 @@ var circleText = circleOutline
     //   .duration(0)
     //   .attr('opacity', 0)
 
-    // g.selectAll('.square')
-    //   .transition()
-    //   .duration(800)
-    //   .attr('opacity', 0);
+    g.selectAll('.square')
+      .transition()
+      .duration(800)
+      .attr('opacity', 0);
 
     g.selectAll('.fill-square')
       .transition()
@@ -945,7 +945,7 @@ var circleText = circleOutline
   function getWords(rawData) {
     return rawData.map(function (d, i) {
       // is this word a filler word?
-      d.filler = (d.filler === '1') ? true : false;
+      d.two_year_recid = (d.two_year_recid === '1') ? true : false;
       // time in seconds word was spoken
       d.time = +d.time;
       // time in minutes word was spoken
@@ -969,7 +969,7 @@ var circleText = circleOutline
    * @param data - word data from getWords
    */
   function getFillerWords(data) {
-    return data.filter(function (d) {return d.filler; });
+    return data.filter(function (d) {return d.two_year_recid; });
   }
 
   /**
