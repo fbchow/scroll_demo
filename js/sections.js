@@ -48,7 +48,7 @@ var scrollVis = function () {
     .range([0, height - 50], 0.1, 0.1);
 
   // Color is determined just by the index of the bars
-  var barColors = { 0: '#008080', 1: '#399785', 2: '#5AAF8C' };
+  var barColors = { 0: '#d8a6a8', 1: '#b95f62', 2: '#471f20' };
 
   // The histogram display shows the
   // first 30 minutes of data
@@ -401,7 +401,7 @@ var circleText = circleOutline
       .attr('class', 'sub-title cough cough-title')
       .attr('x', width / 2)
       .attr('y', 60)
-      .text('bias?')
+      .text(' ')
       .attr('opacity', 0);
 
     // arrowhead from
@@ -1016,7 +1016,7 @@ function getFillerDefendants(data){
    */
   function getHistogram(data) {
     // only get words from the first 30 minutes
-    var thirtyMins = data.filter(function (d) { return d.min < 100; });
+    var thirtyMins = data.filter(function (d) { return d.min < 200; });
     // bin data into 2 minutes chuncks
     // from 0 - 31 minutes
     // @v4 The d3.histogram() produces a significantly different
