@@ -246,13 +246,15 @@ var scrollVis = function () {
     // .attr('width', '600')
     .attr('opacity', 0);
 
-        g.append('image')
+    g.append('image')
     .attr('xlink:href','img/lauren-kirchner-1000x1000.jpg')
     .attr('class', 'author-image laurn-kirchner')
     // .attr('height', '332')
     // .attr('height', '632')
-    .attr('height', '850')
-    .attr('width', '200')
+    .attr('height', '650')
+    .attr('width', '250')
+    .attr('x', '5')
+    .attr('y', '100')
     // .attr('width', '600')
     .attr('opacity', 0);
 
@@ -262,8 +264,8 @@ var scrollVis = function () {
     // .attr('height', '332')
     // .attr('height', '632')
     .attr('height', '650')
-    .attr('width', '300')
-    .attr('x', '250')
+    .attr('width', '250')
+    .attr('x', '300')
     .attr('y', '140')
     .attr('opacity', 0);
 
@@ -431,13 +433,14 @@ var circleText = circleOutline
     // time the active section changes
     activateFunctions[0] = showTitle;
     activateFunctions[1] = showFillerTitle;
-    activateFunctions[2] = showGrid;
-    activateFunctions[3] = highlightGrid;
-    activateFunctions[4] = showBar;
-    activateFunctions[5] = showHistPart;
-    activateFunctions[6] = showHistAll;
-    activateFunctions[7] = showCough;
-    activateFunctions[8] = showHistAll;
+    activateFunctions[2] = showAuthors;
+    activateFunctions[3] = showGrid;
+    activateFunctions[4] = highlightGrid;
+    activateFunctions[5] = showBar;
+    activateFunctions[6] = showHistPart;
+    activateFunctions[7] = showHistAll;
+    activateFunctions[8] = showCough;
+    activateFunctions[9] = showHistAll;
 
     // updateFunctions are called while
     // in a particular section to update
@@ -548,10 +551,10 @@ var circleText = circleOutline
       .duration(0)
       .attr('opacity', 1.0);
 
-      g.selectAll('.tenthousand-title')
-      .transition()
-      .duration(600)
-      .attr('opacity', 0);
+      // g.selectAll('.tenthousand-title')
+      // .transition()
+      // .duration(600)
+      // .attr('opacity', 0);
 
 
     g.selectAll('.author-image')
@@ -563,7 +566,7 @@ var circleText = circleOutline
 
 
   /**
-   * showGrid - square grid
+   * showAuthors - square grid
    *
    * hides: filler count title
    * hides: filler highlight in grid
@@ -571,7 +574,7 @@ var circleText = circleOutline
    * shows: square grid
    *
    */
-  function showGrid() {
+  function showAuthors() {
     g.selectAll('.count-title')
       .transition()
       .duration(0)
@@ -594,24 +597,70 @@ var circleText = circleOutline
     .attr('opacity', 1.0);
 
 
-    // g.selectAll('.square')
-    //   .transition()
-    //   .duration(600)
-    //   .delay(function (d) {
-    //     return 5 * d.row;
-    //     // return 10,00 rows for each subject
-    //   // return 10 * d.row;
-
-    //   })
-    //   .attr('opacity', 1.0)
-    //   .attr('fill', '#ddd');
-
-    g.selectAll('.tenthousand-title')
+    g.selectAll('.square')
       .transition()
       .duration(600)
-      .attr('opacity', 1.0);
+      .delay(function (d) {
+        return 5 * d.row;
+        // return 10,00 rows for each subject
+      // return 10 * d.row;
+
+      })
+      .attr('opacity', 0)
+      .attr('fill', '#ddd');
+
+    // g.selectAll('.tenthousand-title')
+    //   .transition()
+    //   .duration(600)
+    //   .attr('opacity', 0);
 
   }
+
+
+/**
+   * showGrid - square grid
+   *
+   * hides: filler count title
+   * hides: filler highlight in grid
+   * hides: circles
+   * shows: square grid
+   *
+   */
+  function showGrid() {
+
+  g.selectAll('.author-image')
+    .transition()
+    .duration(660)
+    .attr('opacity', 0);
+
+
+    g.selectAll('.square')
+      .transition()
+      .duration(600)
+      .delay(function (d) {
+        return 5 * d.row;
+        // return 10,00 rows for each subject
+      // return 10 * d.row;
+
+      })
+      .attr('opacity', 1.0)
+      .attr('fill', '#ddd');
+
+    // g.selectAll('.tenthousand-title')
+    //   .transition()
+    //   .duration(600)
+    //   .attr('opacity', 1.0);
+
+  }
+
+
+
+
+
+
+
+
+
 
   /**
    * highlightGrid - show fillers in grid
@@ -635,16 +684,16 @@ var circleText = circleOutline
       .attr('opacity', 0);
 
 
-    // g.selectAll('.square')
-    //   .transition()
-    //   .duration(0)
-    //   .attr('opacity', 1.0)
-    //   .attr('fill', '#ddd');
-
-    g.selectAll('.tenthousand-title')
+    g.selectAll('.square')
       .transition()
-      .duration(600)
-      .attr('opacity', 0)
+      .duration(0)
+      .attr('opacity', 1.0)
+      .attr('fill', '#ddd');
+
+    // g.selectAll('.tenthousand-title')
+    //   .transition()
+    //   .duration(600)
+    //   .attr('opacity', 0)
 
       g.selectAll('.author-image')
     .transition()
@@ -687,10 +736,10 @@ var circleText = circleOutline
     showAxis(xAxisBar);
 
 
-    g.selectAll('.tenthousand-title')
-      .transition()
-      .duration(0)
-      .attr('opacity', 0)
+    // g.selectAll('.tenthousand-title')
+    //   .transition()
+    //   .duration(0)
+    //   .attr('opacity', 0)
 
     // g.selectAll('.square')
     //   .transition()
