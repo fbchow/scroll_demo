@@ -369,7 +369,7 @@ var circleText = circleOutline
     barText.enter()
       .append('text')
       .attr('class', 'bar-text')
-      .text(function (d) { return d.key + '…'; })
+      .text(function (d) { return d.key; })
       .attr('x', 0)
       .attr('dx', 15)
       .attr('y', function (d, i) { return yBarScale(i);})
