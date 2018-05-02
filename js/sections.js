@@ -122,8 +122,13 @@ var scrollVis = function () {
 
       // perform some preprocessing on raw data
       var wordData = getWords(rawData);
+      var blackData = getBlackDefendants(rawData);
+
       // filter to just include filler words
       var fillerWords = getFillerWords(wordData);
+
+      var fillerBlack = getFillerDefendants(blackData);
+
 
       // get the counts of filler words for the
       // bar chart display
@@ -134,7 +139,7 @@ var scrollVis = function () {
 
       // get aggregated histogram data
 
-      var histData = getHistogram(fillerWords);
+      var histData = getHistogram(fillerBlack);
       // set histogram's domain
       var histMax = d3.max(histData, function (d) { return d.length; });
       yHistScale.domain([0, histMax]);
@@ -346,7 +351,7 @@ var circleText = circleOutline
       // .classed('fill-square', true)
       // .classed('female-square', function (d) { return d.female; })
       // .classed('male-square', function (d) { return d.male; })
-      .classed('fill-square', function (d) { return d.two_year_recid; })
+      .classed('fill-square', function (d) { return d.is_recid; })
       .attr('x', function (d) { return d.x;})
       .attr('y', function (d) { return d.y;})
       .attr('opacity', 0);
@@ -720,7 +725,7 @@ var circleText = circleOutline
       .transition()
       .duration(800)
       .attr('opacity', 1.0)
-      .attr('fill', function (d) { return d.two_year_recid ? '#9B4447' : '#ddd'; });
+      .attr('fill', function (d) { return d.is_recid ? '#9B4447' : '#ddd'; });
   }
 
   /**
@@ -945,7 +950,7 @@ var circleText = circleOutline
   function getWords(rawData) {
     return rawData.map(function (d, i) {
       // is this word a filler word?
-      d.two_year_recid = (d.two_year_recid === '1') ? true : false;
+      d.is_recid = (d.is_recid === '1') ? true : false;
       // time in seconds word was spoken
       d.time = +d.time;
       // time in minutes word was spoken
@@ -962,6 +967,28 @@ var circleText = circleOutline
     });
   }
 
+
+  function getBlackDefendants(rawData) {
+    return rawData.map(function (d, i) {
+      // is this word a filler word?
+      d.race = (d.race === 'African-American') ? true : false;
+      // time in seconds word was spoken
+      d.time = +d.time;
+      // time in minutes word was spoken
+      d.min = Math.floor(d.time);
+
+      // positioning for square visual
+      // stored here to make it easier
+      // to keep track of.
+      d.col = i % numPerRow;
+      d.x = d.col * (squareSize + squarePad);
+      d.row = Math.floor(i / numPerRow);
+      d.y = d.row * (squareSize + squarePad);
+      return d;
+    });
+  }
+
+
   /**
    * getFillerWords - returns array of
    * only filler words
@@ -969,8 +996,16 @@ var circleText = circleOutline
    * @param data - word data from getWords
    */
   function getFillerWords(data) {
-    return data.filter(function (d) {return d.two_year_recid; });
+    return data.filter(function (d) {return d.is_recid; });
   }
+
+function getFillerDefendants(data){
+  return data.filter(function (d) {return d.race; });
+}
+
+
+
+
 
   /**
    * getHistogram - use d3's histogram layout
@@ -981,7 +1016,7 @@ var circleText = circleOutline
    */
   function getHistogram(data) {
     // only get words from the first 30 minutes
-    var thirtyMins = data.filter(function (d) { return d.min < 30; });
+    var thirtyMins = data.filter(function (d) { return d.min < 100; });
     // bin data into 2 minutes chuncks
     // from 0 - 31 minutes
     // @v4 The d3.histogram() produces a significantly different
@@ -1079,4 +1114,4 @@ function display(data) {
 }
 
 // load data and display
-d3.csv('data/risk-dist.csv', display);
+d3.csv('data/all-risk-dist.csv', display);
