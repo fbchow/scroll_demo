@@ -82,7 +82,9 @@ var scrollVis = function () {
   // @v4 using new axis name
   var xAxisHist = d3.axisBottom()
     .scale(xHistScale)
-    .tickFormat(function (d) { return d + ' min'; });
+    // .tickFormat(function (d) { return d + ' min'; });
+    .tickFormat(function (d) { return d; });
+
 
   // When scrolling to a new section
   // the activation function for that
@@ -725,7 +727,7 @@ var circleText = circleOutline
       .transition()
       .duration(800)
       .attr('opacity', 1.0)
-      .attr('fill', function (d) { return d.is_recid ? '#9B4447' : '#ddd'; });
+      .attr('fill', function (d) { return d.is_recid ? '#3D484B' : '#ddd'; });
   }
 
   /**
@@ -970,6 +972,9 @@ var circleText = circleOutline
 
   function getBlackDefendants(rawData) {
     return rawData.map(function (d, i) {
+
+      d.decile_score = d.decile_score;
+
       // is this word a filler word?
       d.race = (d.race === 'African-American') ? true : false;
       // time in seconds word was spoken
@@ -1016,6 +1021,7 @@ function getFillerDefendants(data){
    */
   function getHistogram(data) {
     // only get words from the first 30 minutes
+    // instantiate new filtered data object
     var thirtyMins = data.filter(function (d) { return d.min < 200; });
     // bin data into 2 minutes chuncks
     // from 0 - 31 minutes
