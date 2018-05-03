@@ -265,7 +265,7 @@ var scrollVis = function () {
     // .attr('width', '600')
     .attr('opacity', 0);
 
-        g.append('image')
+    g.append('image')
     .attr('xlink:href','img/suryamattu.jpg')
     .attr('class', 'author-image suryamattu')
     // .attr('height', '332')
@@ -276,6 +276,31 @@ var scrollVis = function () {
     .attr('y', '140')
     .attr('opacity', 0);
 
+
+    g.append('image')
+    .attr('xlink:href','img/pblack.png')
+    .attr('class', 'charts-image blackChart')
+    // .attr('height', '332')
+    .attr('height', '632')
+    .attr('width', '600')
+    .attr('opacity', 0);
+
+
+    g.append('image')
+    .attr('xlink:href','img/pwhite.png')
+    .attr('class', 'charts-image whiteChart')
+    // .attr('height', '332')
+    .attr('height', '632')
+    .attr('width', '600')
+    .attr('opacity', 0);
+
+    g.append('image')
+    .attr('xlink:href','img/both-races.png')
+    .attr('class', 'charts-image bothChart')
+    // .attr('height', '332')
+    .attr('height', '632')
+    .attr('width', '600')
+    .attr('opacity', 0);
 
 
   var circleData = [
@@ -331,6 +356,9 @@ var circleText = circleOutline
                  .attr("font-size", "10px")
                  .attr("fill", "white")
                  .attr('opacity', 0);
+
+
+
 
 
 
@@ -447,7 +475,7 @@ var circleText = circleOutline
     activateFunctions[6] = showHistPart;
     activateFunctions[7] = showHistAll;
     activateFunctions[8] = showCough;
-    activateFunctions[9] = showHistAll;
+    activateFunctions[9] = showBoth;
 
     // updateFunctions are called while
     // in a particular section to update
@@ -782,6 +810,11 @@ var circleText = circleOutline
       .duration(600)
       .delay(1200)
       .attr('opacity', 1);
+
+    g.selectAll('.blackChart')
+    .transition()
+    .duration(0)
+    .attr('opacity',0);
   }
 
   /**
@@ -795,7 +828,12 @@ var circleText = circleOutline
    */
   function showHistPart() {
     // switch the axis to histogram one
-    showAxis(xAxisHist);
+    hideAxis(xAxisHist);
+
+    g.selectAll('.blackChart')
+    .transition()
+    .duration(0)
+    .attr('opacity',1);
 
     g.selectAll('.bar-text')
       .transition()
@@ -807,14 +845,19 @@ var circleText = circleOutline
       .duration(600)
       .attr('width', 0);
 
-    // here we only show a bar if
-    // it is before the 15 minute mark
-    g.selectAll('.hist')
-      .transition()
-      .duration(600)
-      .attr('y', function (d) { return (d.x0 < 15) ? yHistScale(d.length) : height; })
-      .attr('height', function (d) { return (d.x0 < 15) ? height - yHistScale(d.length) : 0; })
-      .style('opacity', function (d) { return (d.x0 < 15) ? 1.0 : 1e-6; });
+  g.selectAll('.whiteChart')
+    .transition()
+    .duration(0)
+    .attr('opacity',0);
+
+    // // here we only show a bar if
+    // // it is before the 15 minute mark
+    // g.selectAll('.hist')
+    //   .transition()
+    //   .duration(600)
+    //   .attr('y', function (d) { return (d.x0 < 15) ? yHistScale(d.length) : height; })
+    //   .attr('height', function (d) { return (d.x0 < 15) ? height - yHistScale(d.length) : 0; })
+    //   .style('opacity', function (d) { return (d.x0 < 15) ? 1.0 : 1e-6; });
   }
 
   /**
@@ -828,27 +871,45 @@ var circleText = circleOutline
    *
    */
   function showHistAll() {
+
+
+    g.selectAll('.blackChart')
+    .transition()
+    .duration(0)
+    .attr('opacity',0);
+
+
+    g.selectAll('.whiteChart')
+    .transition()
+    .duration(0)
+    .attr('opacity',1);
+
+
+    g.selectAll('.bothChart')
+    .transition()
+    .duration(0)
+    .attr('opacity',0);
     // ensure the axis to histogram one
-    showAxis(xAxisHist);
+    // showAxis(xAxisHist);
 
-    g.selectAll('.cough')
-      .transition()
-      .duration(0)
-      .attr('opacity', 0);
+    // g.selectAll('.cough')
+    //   .transition()
+    //   .duration(0)
+    //   .attr('opacity', 0);
 
-    // named transition to ensure
-    // color change is not clobbered
-    g.selectAll('.hist')
-      .transition('color')
-      .duration(500)
-      .style('fill', '#008080');
+    // // named transition to ensure
+    // // color change is not clobbered
+    // g.selectAll('.hist')
+    //   .transition('color')
+    //   .duration(500)
+    //   .style('fill', '#008080');
 
-    g.selectAll('.hist')
-      .transition()
-      .duration(1200)
-      .attr('y', function (d) { return yHistScale(d.length); })
-      .attr('height', function (d) { return height - yHistScale(d.length); })
-      .style('opacity', 1.0);
+    // g.selectAll('.hist')
+    //   .transition()
+    //   .duration(1200)
+    //   .attr('y', function (d) { return yHistScale(d.length); })
+    //   .attr('height', function (d) { return height - yHistScale(d.length); })
+    //   .style('opacity', 1.0);
   }
 
   /**
@@ -861,17 +922,45 @@ var circleText = circleOutline
    *
    */
   function showCough() {
-    // ensure the axis to histogram one
-    showAxis(xAxisHist);
 
-    g.selectAll('.hist')
-      .transition()
-      .duration(600)
-      .attr('y', function (d) { return yHistScale(d.length); })
-      .attr('height', function (d) { return height - yHistScale(d.length); })
-      .style('opacity', 1.0);
+    g.selectAll('.whiteChart')
+    .transition()
+    .duration(0)
+    .attr('opacity',0);
+
+    g.selectAll('.bothChart')
+    .transition()
+    .duration(0)
+    .attr('opacity',1);
+
+    // ensure the axis to histogram one
+    // showAxis(xAxisHist);
+
+    // g.selectAll('.hist')
+    //   .transition()
+    //   .duration(600)
+    //   .attr('y', function (d) { return yHistScale(d.length); })
+    //   .attr('height', function (d) { return height - yHistScale(d.length); })
+    //   .style('opacity', 1.0);
   }
 
+
+  function showBoth() {
+
+    g.selectAll('.bothChart')
+    .transition()
+    .duration(0)
+    .attr('opacity',0);
+    // ensure the axis to histogram one
+    // showAxis(xAxisHist);
+
+    // g.selectAll('.hist')
+    //   .transition()
+    //   .duration(600)
+    //   .attr('y', function (d) { return yHistScale(d.length); })
+    //   .attr('height', function (d) { return height - yHistScale(d.length); })
+    //   .style('opacity', 1.0);
+  }
   /**
    * showAxis - helper function to
    * display particular xAxis
@@ -917,17 +1006,17 @@ var circleText = circleOutline
    *  how far user has scrolled in section
    */
   function updateCough(progress) {
-    g.selectAll('.cough')
-      .transition()
-      .duration(0)
-      .attr('opacity', progress);
+    // g.selectAll('.cough')
+    //   .transition()
+    //   .duration(0)
+    //   .attr('opacity', progress);
 
-    g.selectAll('.hist')
-      .transition('cough')
-      .duration(0)
-      .style('fill', function (d) {
-        return (d.x0 >= 14) ? coughColorScale(progress) : '#008080';
-      });
+    // g.selectAll('.hist')
+    //   .transition('cough')
+    //   .duration(0)
+    //   .style('fill', function (d) {
+    //     return (d.x0 >= 14) ? coughColorScale(progress) : '#008080';
+    //   });
   }
 
   /**
